@@ -32,7 +32,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: echo "test is harder than I thought"
+      - run: echo "test is harder than I thought $username "
 
 workflows:
   deploy:
