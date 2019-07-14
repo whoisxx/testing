@@ -44,4 +44,6 @@ jobs:
       - test_parameters
 
 workflows:
-  - build
+  deploy:
+    jobs:
+      - build
