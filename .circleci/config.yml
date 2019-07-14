@@ -1,5 +1,5 @@
 
-version: 2
+version: 2.1
 
 commands:
   test_parameters:
@@ -9,7 +9,7 @@ commands:
         type: string
     steps:
       - run: echo << parameters.username >>
-      
+
 jobs:
   build:
     docker:
