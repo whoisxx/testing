@@ -1,4 +1,15 @@
+
 version: 2
+
+commands:
+  test_parameters:
+    parameters:
+      username:
+        description: username variable
+        type: string
+    steps:
+      - run: echo << parameters.username >>
+      
 jobs:
   build:
     docker:
@@ -30,4 +41,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: echo "test done!"
+      - test_parameters
