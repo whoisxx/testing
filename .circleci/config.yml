@@ -1,15 +1,6 @@
 
 version: 2.1
 
-commands:
-  test_parameters:
-    parameters:
-      username:
-        description: username variable
-        type: string
-    steps:
-      - run: echo << parameters.username >>
-
 jobs:
   build:
     docker:
@@ -41,7 +32,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - test_parameters
+      - run: echo "test is harder than I thought"
 
 workflows:
   deploy:
