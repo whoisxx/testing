@@ -37,4 +37,6 @@ workflows:
   deploy:
     jobs:
       - build
-      - second_step
+      - second_step:
+          requires:
+            - build
