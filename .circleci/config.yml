@@ -39,9 +39,8 @@ workflows:
       - build
   prod_deploy:
     jobs:
-      - second_step
+      - second_step:
           filters:
             branches:
-              only:
-                - master
+              only: master
 
