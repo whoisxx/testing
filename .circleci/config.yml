@@ -36,7 +36,10 @@ jobs:
 workflows:
   dev_deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: /.*/
   prod_deploy:
     jobs:
       - second_step:
