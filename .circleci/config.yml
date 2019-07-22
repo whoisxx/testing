@@ -38,5 +38,5 @@ workflows:
     jobs:
       - build
       - second_step:
-        require:
+        requires:
           - build
