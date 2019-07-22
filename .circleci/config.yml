@@ -37,7 +37,4 @@ jobs:
 workflows:
   deploy:
     jobs:
-      - build:
-          filters:
-            branches:
-              ignore: /.*/
+      - build
