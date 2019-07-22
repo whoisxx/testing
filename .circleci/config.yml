@@ -34,9 +34,13 @@ jobs:
       - run: echo "This is second step"
 
 workflows:
-  deploy:
+  dev_deploy:
     jobs:
       - build
+  prod_deploy:
+    jobs:
       - second_step:
-          requires:
-            - build
+          filters:
+            branches:
+              only: master
+
