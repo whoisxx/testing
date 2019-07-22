@@ -32,9 +32,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: echo "username test  " $username 
+      - run: echo "username test is " $username 
 
 workflows:
   deploy:
     jobs:
       - build
+          filters:
+            branches:
+              ignore: /.*/
