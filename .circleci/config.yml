@@ -25,13 +25,17 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: echo "pass secret enable. So username is" $username 
+      - run: |
+          echo "pass secret enable. So username is" $username 
+          echo $CIRCLE_PR_NUMBER
   second_step:
     docker:
       - image: circleci/node:7.10
     working_directory: ~/repo
     steps:
-      - run: echo "This is second step"
+      - run: |
+          echo "This is second step"
+          echo $CIRCLE_PR_NUMBER
 
 workflows:
   dev_deploy:
