@@ -28,7 +28,7 @@ jobs:
       - run: |
           echo "pass secret enable. So username is" $username 
           echo "what is circle_pr_number --> " $CIRCLE_PR_NUMBER
-          if [ $CIRCLE_PR_NUMBER ];then
+          if [ -z $CIRCLE_PR_NUMBER ];then
             echo "pr number is exist"
           fi
   second_step:
@@ -39,7 +39,7 @@ jobs:
       - run: |
           echo "This is second step"
           echo "what is circle_pr_number --> " $CIRCLE_PR_NUMBER
-          if [ $CIRCLE_PR_NUMBER ];then
+          if [ -z $CIRCLE_PR_NUMBER ];then
             echo "pr number is exist"
           fi
 
@@ -49,5 +49,7 @@ workflows:
       - build
   prod_deploy:
     jobs:
-      - second_step
-
+      - second_step:
+          filters:
+            branches:
+              only: master
